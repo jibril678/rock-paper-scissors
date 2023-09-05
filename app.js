@@ -27,22 +27,15 @@ function playRound () {
 
 
     if (playerSelection == computerSelection) {
-        playerScore++; computerScore++;
-        console.log(playerScore)
-        console.log(computerScore)
         return "It's a tie!" 
     }
     else if (playerSelection === "rock" && computerSelection === "paper" || playerSelection === "paper" && computerSelection === "scissors" || playerSelection === "scissors" && computerSelection === "rock") {
-        computerScore++;
-        console.log(playerScore)
-        console.log(computerScore)
-        return "Computer Wins!"
+        ++computerScore;
+        return `Computer wins this round! Score is - You: ${playerScore} vs Computer: ${computerScore}`
     }
     else if (playerSelection === "rock" && computerSelection === "scissors" || playerSelection === "paper" && computerSelection === "rock" || playerSelection === "scissors" && computerSelection === "paper") {
-        playerScore++;
-        console.log(playerScore)
-        console.log(computerScore)
-        return "You Win!"
+        ++playerScore;
+        return `You win this round! Score is - You: ${playerScore} vs Computer: ${computerScore}`
     }
     else {
         return "Please enter a correct value"
@@ -50,4 +43,16 @@ function playRound () {
 
 }
 
-console.log(playRound())
+function playGame() {
+while (playerScore < 5 || computerScore < 5)
+    if (playerScore === 5) {
+        return `You have beaten the computer. Well done! Final score is - You: ${playerScore} vs Computer: ${computerScore}`
+    }
+    else if (computerScore === 5) {
+        return `You lost the game! Better luck next time. The Final score is - You: ${playerScore} vs Computer: ${computerScore}`
+    } else {
+    console.log(playRound()) }
+    
+}
+
+console.log(playGame())
