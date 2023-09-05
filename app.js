@@ -17,6 +17,9 @@ function getPlayerChoice () {
     }
 
 
+let playerScore = 0
+let computerScore = 0
+
 function playRound () {
     let playerSelection = getPlayerChoice()
     let computerSelection = getComputerChoice()
@@ -24,17 +27,27 @@ function playRound () {
 
 
     if (playerSelection == computerSelection) {
+        playerScore++; computerScore++;
+        console.log(playerScore)
+        console.log(computerScore)
         return "It's a tie!" 
     }
-    else if (playerSelection == "rock" && computerSelection == "paper" || playerSelection == "paper" && computerSelection == "scissors" || playerSelection == "scissors" && computerSelection == "rock") {
+    else if (playerSelection === "rock" && computerSelection === "paper" || playerSelection === "paper" && computerSelection === "scissors" || playerSelection === "scissors" && computerSelection === "rock") {
+        computerScore++;
+        console.log(playerScore)
+        console.log(computerScore)
         return "Computer Wins!"
     }
-    else if (playerSelection == "rock" && computerSelection == "scissors" || playerSelection == "paper" && computerSelection == "rock" || playerSelection == "scissors" && computerSelection == "paper") {
+    else if (playerSelection === "rock" && computerSelection === "scissors" || playerSelection === "paper" && computerSelection === "rock" || playerSelection === "scissors" && computerSelection === "paper") {
+        playerScore++;
+        console.log(playerScore)
+        console.log(computerScore)
         return "You Win!"
     }
     else {
         return "Please enter a correct value"
     }
+
 }
 
 console.log(playRound())
