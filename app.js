@@ -44,11 +44,11 @@ function playRound () {
 }
 
 function playGame() {
-while (playerScore < 3 || computerScore < 3)
-    if (playerScore === 3) {
+while (playerScore < 5 || computerScore < 5)
+    if (playerScore === 5) {
         return `You have beaten the computer. Well done! Final score is - You: ${playerScore} vs Computer: ${computerScore}`
     }
-    else if (computerScore === 3) {
+    else if (computerScore === 5) {
         return `You lost the game! Better luck next time. The Final score is - You: ${playerScore} vs Computer: ${computerScore}`
     } else {
     console.log(playRound()) }
