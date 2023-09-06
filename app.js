@@ -26,7 +26,7 @@ function playRound () {
     console.log(`You played '${playerSelection}' and the computer played '${computerSelection}'`)
 
 
-    if (playerSelection == computerSelection) {
+    if (playerSelection === computerSelection) {
         return "It's a tie!" 
     }
     else if (playerSelection === "rock" && computerSelection === "paper" || playerSelection === "paper" && computerSelection === "scissors" || playerSelection === "scissors" && computerSelection === "rock") {
