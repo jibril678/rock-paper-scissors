@@ -1,3 +1,8 @@
+const rockButton = document.getElementById("rock")
+const paperButton = document.getElementById("paper")
+const scissorButton = document.getElementById("scissors")
+
+
 function getComputerChoice () {
     let computerChoice = ["r", "p", "s"]
     let randomChoice = Math.floor(Math.random() * computerChoice.length + 1)
@@ -10,18 +15,10 @@ function getComputerChoice () {
         return "scissors"
 }
 
-function getPlayerChoice () {
-    let playerChoice = prompt("What do you draw?: Enter 'rock', 'paper, or 'scissors'")
-    let response = playerChoice.toLowerCase()
-    return response
-    }
-
-
 let playerScore = 0
 let computerScore = 0
 
-function playRound () {
-    let playerSelection = getPlayerChoice()
+function playRound (playerSelection) {
     let computerSelection = getComputerChoice()
     console.log(`You played '${playerSelection}' and the computer played '${computerSelection}'`)
 
@@ -52,7 +49,12 @@ while (playerScore < 5 || computerScore < 5)
         return `You lost the game! Better luck next time. The Final score is - You: ${playerScore} vs Computer: ${computerScore}`
     } else {
     console.log(playRound()) }
-    
 }
 
-console.log(playGame())
+rockButton.addEventListener('click' , () => playRound("rock"))
+paperButton.addEventListener('click' , () => playRound("paper"))
+scissorButton.addEventListener('click' , () => playRound("scissors"))
+
+
+
+// console.log(playGame())
