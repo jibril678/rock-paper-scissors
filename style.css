@@ -1,4 +1,22 @@
-.main{
-    border: solid red;
+.body {
+    display: flex;
+    justify-content: center;
+    padding: 100px;
+}
+
+#main{
+    padding: 50px;
     text-align: center;
+}
+
+.selections {
+    padding: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+}
+
+button {
+    height: 100px;
+    width: 100px;
 }
