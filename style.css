@@ -1,7 +1,8 @@
-.body {
-    display: flex;
-    justify-content: center;
+body {
     padding: 100px;
+    font-family: Arial, sans-serif;
+    color: white;
+    background-color: rgb(36, 34, 34);
 }
 
 #main{
@@ -19,4 +20,26 @@
 button {
     height: 100px;
     width: 100px;
+}
+
+button:hover {
+    border: solid 5px #a4a4a4;    
+}
+
+#rock:active, 
+#paper:active,
+#scissors:active {
+    background: #e1e72e;
+}
+
+#rock {
+    background-color: rgb(170, 213, 239);
+}
+
+#paper {
+    background-color: rgb(173, 238, 173);
+}
+
+#scissors {
+    background-color: rgb(239, 161, 161);
 }
