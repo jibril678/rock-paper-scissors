@@ -96,7 +96,7 @@ function playRound (playerSelection) {
     if (playerScore === 5) {
         const playerWin = document.createElement("p")
         playerWin.id = "player-win"
-        playerWin.textContent = `You have beaten the computer. Well done! Final score is - You: ${playerScore} vs Computer: ${computerScore}`
+        playerWin.textContent = `You have beaten the computer. Well done!`
         mainSection.append(playerWin)
         playerScore = 0
         computerScore = 0
@@ -104,7 +104,7 @@ function playRound (playerSelection) {
     else if (computerScore === 5) {
         const compWin = document.createElement("p")
         compWin.id = 'comp-win'
-        compWin.textContent = `You lost the game! Better luck next time. The Final score is - You: ${playerScore} vs Computer: ${computerScore}`
+        compWin.textContent = `You lost the game! Better luck next time.`
         mainSection.append(compWin)
         playerScore = 0
         computerScore = 0
