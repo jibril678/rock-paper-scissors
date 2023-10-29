@@ -33,13 +33,24 @@ function playRound (playerSelection) {
         tieResult.remove()
     }
 
-    const compWinner = document.getElementById("comp-winner")
-    if (compWinner) {
-        compWinner.remove()
+    const compRound = document.getElementById("comp-round")
+    if (compRound) {
+        compRound.remove()
     }
-    const playerWinner = document.getElementById("player-winner")
-    if (playerWinner) {
-        playerWinner.remove()
+
+    const playerRound = document.getElementById("player-round")
+    if (playerRound) {
+        playerRound.remove()
+    }
+
+    const playerWin = document.getElementById("player-win")
+    if (playerWin) {
+        playerWin.remove()
+    }
+
+    const compWin = document.getElementById("comp-win")
+    if (compWin) {
+        compWin.remove()
     }
 
     const p1 = document.createElement("p")
@@ -69,126 +80,37 @@ function playRound (playerSelection) {
     else if (playerSelection === "rock" && computerSelection === "paper" || playerSelection === "paper" && computerSelection === "scissors" || playerSelection === "scissors" && computerSelection === "rock") {
         ++computerScore;
         const p3 = document.createElement("p")
-        p3.id = "comp-winner"
+        p3.id = "comp-round"
         p3.textContent = `Computer wins this round! Score is - You: ${playerScore} vs Computer: ${computerScore}`
         mainSection.append(p3)
     }
     else if (playerSelection === "rock" && computerSelection === "scissors" || playerSelection === "paper" && computerSelection === "rock" || playerSelection === "scissors" && computerSelection === "paper") {
         ++playerScore;
         const p4 = document.createElement("p")
-        p4.id = "player-winner"
+        p4.id = "player-round"
         p4.textContent = `You win this round! Score is - You: ${playerScore} vs Computer: ${computerScore}`
         mainSection.append(p4)
     
     }
+
+    if (playerScore === 5) {
+        const playerWin = document.createElement("p")
+        playerWin.id = "player-win"
+        playerWin.textContent = `You have beaten the computer. Well done! Final score is - You: ${playerScore} vs Computer: ${computerScore}`
+        mainSection.append(playerWin)
+        playerScore = 0
+        computerScore = 0
+    }
+    else if (computerScore === 5) {
+        const compWin = document.createElement("p")
+        compWin.id = 'comp-win'
+        compWin.textContent = `You lost the game! Better luck next time. The Final score is - You: ${playerScore} vs Computer: ${computerScore}`
+        mainSection.append(compWin)
+        playerScore = 0
+        computerScore = 0
+    }
 }
 
-function playGame() {
-while (playerScore < 5 || computerScore < 5)
-    if (playerScore === 5) {
-        return `You have beaten the computer. Well done! Final score is - You: ${playerScore} vs Computer: ${computerScore}`
-    }
-    else if (computerScore === 5) {
-        return `You lost the game! Better luck next time. The Final score is - You: ${playerScore} vs Computer: ${computerScore}`
-    } else {
-    console.log(playRound()) }
-}
-
-rockButton.addEventListener('click' , () => { 
-
-    const existingPlayerWin = document.getElementById("player-win")
-    if (existingPlayerWin) {
-        existingPlayerWin.remove()
-    }
-
-    const existingCompWin = document.getElementById("comp-win")
-        if (existingCompWin) {
-            existingCompWin.remove()
-        }
-    
-    if (playerScore === 5) {
-        const playerWin = document.createElement("p")
-        playerWin.id = "player-win"
-        playerWin.textContent = `You have beaten the computer. Well done! Final score is - You: ${playerScore} vs Computer: ${computerScore}`
-        mainSection.append(playerWin)
-        playerScore = 0
-        computerScore = 0
-    }
-    else if (computerScore === 5) {
-        const compWin = document.createElement("p")
-        compWin.id = 'comp-win'
-        compWin.textContent = `You lost the game! Better luck next time. The Final score is - You: ${playerScore} vs Computer: ${computerScore}`
-        mainSection.append(compWin)
-        playerScore = 0
-        computerScore = 0
-    }
-    else {
-        playRound("rock")
-    }   
-})
-
-paperButton.addEventListener('click' , () => { 
-
-    const existingPlayerWin = document.getElementById("player-win")
-    if (existingPlayerWin) {
-        existingPlayerWin.remove()
-    }
-
-    const existingCompWin = document.getElementById("comp-win")
-        if (existingCompWin) {
-            existingCompWin.remove()
-        }
-
-    if (playerScore === 5) {
-        const playerWin = document.createElement("p")
-        playerWin.id = "player-win"
-        playerWin.textContent = `You have beaten the computer. Well done! Final score is - You: ${playerScore} vs Computer: ${computerScore}`
-        mainSection.append(playerWin)
-        playerScore = 0
-        computerScore = 0
-    }
-    else if (computerScore === 5) {
-        const compWin = document.createElement("p")
-        compWin.id = 'comp-win'
-        compWin.textContent = `You lost the game! Better luck next time. The Final score is - You: ${playerScore} vs Computer: ${computerScore}`
-        mainSection.append(compWin)
-        playerScore = 0
-        computerScore = 0
-    }
-    else {
-        playRound("paper")
-    }   
-})
-
-scissorButton.addEventListener('click' , () => { 
-
-    const existingPlayerWin = document.getElementById("player-win")
-    if (existingPlayerWin) {
-        existingPlayerWin.remove()
-    }
-
-    const existingCompWin = document.getElementById("comp-win")
-        if (existingCompWin) {
-            existingCompWin.remove()
-        }
-
-    if (playerScore === 5) {
-        const playerWin = document.createElement("p")
-        playerWin.id = "player-win"
-        playerWin.textContent = `You have beaten the computer. Well done! Final score is - You: ${playerScore} vs Computer: ${computerScore}`
-        mainSection.append(playerWin)
-        playerScore = 0
-        computerScore = 0
-    }
-    else if (computerScore === 5) {
-        const compWin = document.createElement("p")
-        compWin.id = 'comp-win'
-        compWin.textContent = `You lost the game! Better luck next time. The Final score is - You: ${playerScore} vs Computer: ${computerScore}`
-        mainSection.append(compWin)
-        playerScore = 0
-        computerScore = 0
-    }
-    else {
-        playRound("scissors")
-    }   
-})
+rockButton.addEventListener('click' , () => playRound("rock"))
+paperButton.addEventListener('click' , () => playRound("paper"))
+scissorButton.addEventListener('click' , () => playRound("scissors"))
